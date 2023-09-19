@@ -57,8 +57,44 @@ export default function QueryProcessor(query: string): string {
     const y: number = parseInt(minusNum[2]);
     return (x-y).toString();
   }
-  
 
+  function isPrime(n: number) {
+    if (n <= 1) {
+      return false;
+    }
+    
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+      if (n % i === 0) {
+        return false;
+      }
+    }
+    
+    return true;
+  }
+
+  function findPrimes(arr: number[]) {
+    const primeNumbers = [];
+    
+    for (const num of arr) {
+      if (isPrime(num)) {
+        primeNumbers.push(num);
+      }
+    }
+    
+    return primeNumbers;
+  }
+  
+  const findPrime = query.match(/Which of the following numbers are primes: (\d+), (\d+), (\d+), (\d+), (\d+)/);
+  if(findPrime){
+    const x: number = parseInt(findPrime[1]);
+    const y: number = parseInt(findPrime[2]);
+    const z: number = parseInt(findPrime[3]);
+    const a: number = parseInt(findPrime[4]);
+    const b: number = parseInt(findPrime[5]);
+    const arr = [x,y,z,a,b];
+    findPrimes(arr);
+    return findPrimes(arr).toString();
+  }
   return "";
 
 

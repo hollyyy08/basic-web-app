@@ -33,7 +33,7 @@ export default function QueryProcessor(query: string): string {
     return (x+y).toString();
   }
 
-  const biggestNum = query.match(/Which of the following numbers is the largest: (\d), (\d), (\d)/);
+  const biggestNum = query.match(/Which of the following numbers is the largest: (\d+), (\d+), (\d+)/);
 
   if (biggestNum){
     const x: number =parseInt(biggestNum[1]);

@@ -105,6 +105,12 @@ export default function QueryProcessor(query: string): string {
     return (x+y+z).toString();
   }
 
+  const powerOf = query.match(/What is (\d+) to the power of (\d+)/);
+  if(powerOf){
+    const x:number = parseInt(powerOf[1]);
+    const y:number = parseInt(powerOf[2]);
+    return (Math.pow(x,y)).toString();
+  }
   return "";
 
 

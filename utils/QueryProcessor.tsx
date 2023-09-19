@@ -41,7 +41,14 @@ export default function QueryProcessor(query: string): string {
     const z: number =parseInt(biggestNum[3]);
     return Math.max(x,y,z).toString();
   }
-  
+
+  const multiNum = query.match(/What is (\d+) multiplied by (\d+)/);
+
+  if (multiNum) {
+    const x: number = parseInt(multiNum[1]);
+    const y: number = parseInt(multiNum[2]);
+    return (x*y).toString();
+  }
   return "";
 
 

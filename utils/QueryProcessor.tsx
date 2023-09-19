@@ -95,6 +95,16 @@ export default function QueryProcessor(query: string): string {
     findPrimes(arr);
     return findPrimes(arr).toString();
   }
+
+
+  const addx3 = query.match(/What is (\d+) plus (\d+) plus (\d+)/);
+  if(addx3){
+    const x:number = parseInt(addx3[1]);
+    const y:number = parseInt(addx3[2]);
+    const z:number = parseInt(addx3[3]);
+    return (x+y+z).toString();
+  }
+
   return "";
 
 
